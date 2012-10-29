@@ -22,10 +22,14 @@ class ItemsController < ApplicationController
   # GET /items/1.json
   def show
     @item = Item.find(params[:id])
+    expires_in 10.seconds
+    #fresh_when @item, public: true
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @item }
+    if stale? @item, public: true
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @item }
+      end
     end
   end
 
