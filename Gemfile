@@ -9,3 +9,9 @@ end
 gem 'jquery-rails'
 gem 'quiet_assets'
 gem 'thin'
+group :test do
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+  gem 'shoulda'
+  gem 'rspec-expectations'
+end

@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
 
   #caches_page :index
   #caches_action :index
-  before_filter -> { puts '123' }
+  #before_filter -> { puts '123' }
   cache_sweeper :item_sweeper
 
   # GET /items
@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
 
-    p 777
+    #p 777
 
     respond_to do |format|
       format.html # index.html.erb
